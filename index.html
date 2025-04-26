@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestão de Estoque - Evento</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="container-fluid">
+  <ul><li><strong>Estoque Evento</strong></li></ul>
+  <ul>
+    <li><a href="#">Estoque</a></li>
+    <li><a href="#">Histórico</a></li>
+    <li><a href="#" role="button">Adicionar</a></li>
+  </ul>
+</nav>
+<main class="container">
+  <div class="grid">
+    <section>
+      <hgroup>
+        <h2>Controle de Produtos</h2>
+        <h3>Gerencie o estoque do seu evento</h3>
+      </hgroup>
+      <div class="export-buttons">
+        <button id="exportExcel">Exportar Excel</button>
+        <button id="exportPDF">Exportar PDF</button>
+      </div>
+      <label for="productSelect">Selecione um Produto:</label>
+      <select id="productSelect"></select>
+      <div id="product-details" class="grid"></div>
+      <h3>Controle de Movimentação</h3>
+      <button onclick="updateStock('entrada')">Entrada de Estoque</button>
+      <button onclick="updateStock('saida')">Saída de Estoque</button>
+      <h3>Histórico de Movimentações</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Tipo</th>
+            <th>Quantidade</th>
+            <th>Data/Hora</th>
+          </tr>
+        </thead>
+        <tbody id="historyTable"></tbody>
+      </table>
+    </section>
+  </div>
+</main>
+<section aria-label="Subscribe example">
+  <div class="container">
+    <article>
+      <hgroup>
+        <h2>Receba Atualizações</h2>
+        <h3>Fique por dentro da gestão de estoque</h3>
+      </hgroup>
+      <form class="grid">
+        <input type="text" id="firstname" name="firstname" placeholder="Nome" aria-label="Nome" required />
+        <input type="email" id="email" name="email" placeholder="Email" aria-label="Email" required />
+        <button type="submit" onclick="event.preventDefault()">Inscrever</button>
+      </form>
+    </article>
+  </div>
+</section>
+<footer class="container">
+  <small><a href="#">Política de Privacidade</a> • <a href="#">Contato</a></small>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
